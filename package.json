@@ -61,6 +61,7 @@
     "image-size": "^0.8.3",
     "jimp": "^0.16.2",
     "lru-cache": "^5.1.1",
+    "markdown-it-attrs": "^4.1.6",
     "mocha": "^10.1.0",
     "phin": "^3.5.0",
     "purge-from-html": "^1.0.3",
