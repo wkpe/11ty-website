@@ -6,3 +6,5 @@ js/min.js.map
 .vscode/
 .netlify/
 export
+.idea
+package-lock.json
