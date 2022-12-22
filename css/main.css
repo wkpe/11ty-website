@@ -1,11 +1,52 @@
 /* Color customization */
 :root {
-  --primary: #f9c412;
-  --primary-dark: #e7bf60;
+  --main-background-color: #01132A;
+  --primary-gray: #dbdbdb;
+  --breadcrumb-gray: #d1d1d1;
+  --primary-white: #F9F9FF;
+  --primary-black: #101820; /* #333333 #0a0a0b */
+  --primary-blue: #000044;
+  --perfect-blue: #045FD0;
+  --top-blue: #312E81;
+  --primary-red: #D00F04;
+  --secondary-red: #af4fa2;
+  --primary-green: #669966;
+
+  --text-shadow-on-light: #4E73A0;
+
+  --amber-color: rgba(255, 191, 0, 1); /* #FFBF00 */
+  --primary-yellow: #eddd6e; /* rgb(237, 221, 110) */
+  --secondary-yellow: #FFFDA2; /* rgb(255, 253, 162) */
+  --tertiary-yellow: #F1D00A; /* rgb(255, 253, 162) */
+  --turquoise-surf-color: #04C5D0;
+  --bitter-lemon-color: #C5D004;
+
+  --color-melon: #E0AFA0;
+  --color-yellow-gree-crayola: #C3D898;
+
+  --toc-background-color: #5B7698;
+  --toc-border-color: #CDDFF6;
+
+  --code-color-bg: #bdb9b9;
+  --code-color-text: #8267BE;
+  --code-color-shadow: #502064;
+
+  --share-post--dark: rgba(0, 0, 0, .5); /* #0000007F */
+  --share-post-gray: #F0F0F0; /* rgb(240, 240, 240) */
+  --twitter-blue: #2795e9;
+  --facebook-blue: #2c4379;
+  --linkedin-blue: #005582;
+
+  --comment-background: #2c4f71;
+  --comment-header-color: #030202;
+
+  /* the below are from master branch */
+  --primary: var(--bitter-lemon-color);/*#f9c412;*/
+  --primary-dark: var(--turquoise-surf-color); /*#e7bf60;*/
 }
 
 .test-dead-code-elimination-sentinel {
-  color: red;
+  color: var(--primary-red);
 }
 
 /*
@@ -28,6 +69,7 @@ article * {
    Set z-index to keep the nav over the rasterized images */
 header nav {
   z-index: 1;
+  border-bottom: 10px solid var(--perfect-blue);
 }
 
 /*! purgecss start ignore */
@@ -543,7 +585,7 @@ ul {
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 6.0756rem;
+    /*font-size: 6.0756rem;*/
     line-height: 6.72rem;
   }
   h1,
@@ -647,7 +689,9 @@ h6 {
   font-family: var(--font-family);
 }
 h2,
+h3,
 h4,
+h5,
 h6 {
   font-style: italic;
 }
@@ -834,7 +878,7 @@ video {
 }
 body {
   font-family: var(--font-family);
-  background: #181818;
+  background: var(--main-background-color);
   color: #eee;
 }
 section {
@@ -868,7 +912,7 @@ header label {
 }
 header {
   padding: 4.5em 1.5em 3em;
-  width: 37.5em;
+  /*width: 37.5em;*/
   margin: 0 auto;
   text-align: center;
   max-width: 100%;
@@ -1119,4 +1163,100 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+/*  *** start Table of contents  *** */
+.toc a:hover {
+  box-shadow: 0 1px 0;
+}
+.toc {
+  margin: 0 2px 60px 2px;
+  border: 1px solid var(--bitter-lemon-color);
+  background: var(--toc-background-color);
+  border-radius: 8px;
+  padding: .4em;
+}
+.dark .toc {
+  background: var(--twitter-blue);
+}
+.toc details summary {
+  cursor: zoom-in;
+  color: var(--top-blue);
+  margin-inline-start: 20px;
+  font-family: Varela Round, sans-serif;
+  text-shadow: 0 .05rem .1rem var(--text-shadow-on-light);
+}
+.toc details[open] summary {
+  cursor: zoom-out;
+}
+.toc .details {
+  display: inline;
+  font-weight: bolder;
+  color: var(--primary-black);
+}
+.toc .inner {
+  margin: 0 10px 0 0;
+  padding: 10px 5px;
+}
+.toc li ul {
+  /*margin-inline-start: 24px;*/
+}
+
+.toc ul {
+  list-style: none;
+}
+.toc ul li::before {
+  content: "\2022";
+  color: var(--primary-black);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.toc summary:focus {
+  outline: 0;
+}
+/* end Table of contents */
+
+article img {
+  display: flex;
+  border-radius: 10px;
+  border: 2px solid var(--turquoise-surf-color);
+  padding: 0.245rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 4.225rem auto 4.225rem auto;
+}
+article img:hover {
+  opacity: 0.7;
+}
+.non-rounded {
+  border-radius:0;
+  border:0;
+}
+
+article p {
+  margin-top: 3.244rem;
+}
+
+h4 {
+  color: var(--primary-red);
+}
+
+/* Article Summary */
+.summary p:first-of-type::before {
+  content: "Quick summary ↬ ";
+  text-transform: uppercase;
+  color: var(--turquoise-surf-color);
+  font-weight: 700;
+  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+}
+.summary p {
+  font-size: 0.985rem;
+  line-height: 1.675rem;
+  color: #D8D1CC;
+  padding-bottom: 30px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
